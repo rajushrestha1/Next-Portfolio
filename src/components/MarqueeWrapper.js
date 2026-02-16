@@ -1,13 +1,16 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faReact, faJs } from '@fortawesome/free-brands-svg-icons'
+import { SiJavascript, SiReact, SiNodedotjs, SiExpress, SiSocketdotio, SiNextdotjs } from 'react-icons/si'
 
-// Skill list using FontAwesome
+// Skill list using react-icons
 const skillList = [
-  { name: 'JavaScript', icon: faJs },
-  { name: 'React.js', icon: faReact },
+  { name: 'JavaScript', icon: <SiJavascript className="w-10 h-10 text-yellow-400" /> },
+  { name: 'React.js', icon: <SiReact className="w-10 h-10 text-blue-500" /> },
+  { name: 'Node.js', icon: <SiNodedotjs className="w-10 h-10 text-green-500" /> },
+  { name: 'Express.js', icon: <SiExpress className="w-10 h-10 text-gray-500" /> },
+  { name: 'Socket.io', icon: <SiSocketdotio className="w-10 h-10 text-purple-500" /> },
+  { name: 'Next.js', icon: <SiNextdotjs className="w-10 h-10 text-white" /> },
 ]
 
 const MarqueeWrapper = ({ className = '' }) => {
@@ -54,10 +57,7 @@ const MarqueeWrapper = ({ className = '' }) => {
             key={skill.name}
             className="flex flex-col items-center justify-center"
           >
-            <FontAwesomeIcon
-              icon={skill.icon}
-              className="text-blue-500 w-10 h-10"
-            />
+            {skill.icon}
             <span className="mt-2 text-sm font-medium">{skill.name}</span>
           </div>
         ))}
