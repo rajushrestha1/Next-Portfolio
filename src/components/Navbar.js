@@ -3,17 +3,79 @@
 import Link from "next/link";
 
 
-export default function Navbar() {
-return (
-<nav className="fixed top-0 w-full bg-black text-white shadow-lg z-50 lg:pl-44">
-<div className="max-w-7xl mx-auto px-4 py-4 flex gap-8">
-<Link href="/" className="hover:text-yellow-500 transition">Home</Link>
-<Link href="/about" className="hover:text-yellow-500 transition">About</Link>
-<Link href="/portfolio" className="hover:text-yellow-500 transition">Portfolio</Link>
-<Link href="/blog" className="hover:text-yellow-500 transition">Blog</Link>
-<Link href="/testimonials" className="hover:text-yellow-500 transition">Testimonials</Link>
-<Link href="/contact" className="hover:text-yellow-500 transition">Contact</Link>
-</div>
-</nav>
-);
+import MenuIcon from '@mui/icons-material/Menu';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import { useState } from 'react';
+const NavBar = () => {
+    const [nav, setNav]=useState()
+    const links=[
+{
+    id :1,
+    link :"home"
+}, 
+{
+    id :2,
+    link :"about"
+}, 
+{
+    id :3,
+    link :"portfolio"
+}, 
+{
+    id :4,
+    link :"skills"
+}, 
+{
+    id :5,
+    link :"blog"
+}, 
+
+{
+    id :6,
+    link :"contact"
+}, 
+  ];
+  return (
+    <div className="flex justify-between items-center w-full h-20 bg-black text-white px-4 fixed">
+        {/* <div>
+            <h1 className=""><img src='logo1.png' alt='logo' /></h1>
+        </div> */}
+        <ul className="hidden md:flex">
+  {links.map(({id, link}) => (
+    <li key={id} className="relative w-inline-block px-4 cursor-pointer capitalize text-gray-700 hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500 transition-colors duration-300">
+      <Link 
+        href={` /${link}`}  
+        smooth={true} 
+        spy={true} 
+        offset={100} 
+        duration={1000} 
+        className="relative block">
+        {link}
+       
+      </Link>
+    </li>
+  ))}
+</ul>
+
+        <div onClick={()=>setNav(!nav)}
+        className='cursor-pointer pr-4 z-10 text-slate-300 md:hidden    '>
+           {nav? <MenuOpenIcon /> : <MenuIcon />}
+        </div>
+            {nav &&(
+                <ul className='flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800 text-gray-500'>
+                {links.map(({id, link})=>(
+                        <li key={id}
+                        className="px-4 cursor-pointer capitalize py-6 text-4xl">
+                                            <Link onClick={()=>setNav(!nav)}
+                                              href={`/${link}`}  smooth={true} spy={true} offset={-100} duration={500} >{link}</Link>
+
+                        </li>
+                    ))}
+                </ul>
+            )}
+        
+    </div>
+  )
 }
+
+export default NavBar

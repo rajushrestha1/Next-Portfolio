@@ -11,7 +11,7 @@ const Footer = () => {
     const currentDateTime = new Date().toLocaleDateString();
 
   return (
-    <div name="footer" className="min-h-fit w-full bg-gradient-to-b from-slate-800 to-black lg:pl-44 pb-15 text-white block lg:hidden">
+    <div name="footer" className="min-h-fit w-full bg-gradient-to-b from-slate-800 to-black lg:pl-44 pb-15 text-white block">
         <div className='flex flex-col md:flex-row justify-center items-center'>
             <div className='mb-4 md:mb-0'>
                 <h3 className='text-sm'>+977-9825821351</h3>
