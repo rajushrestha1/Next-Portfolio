@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { useState } from 'react';
 const NavBar = () => {
-    const [nav, setNav]=useState()
+    const [nav, setNav] = useState(false)
     const links=[
 {
     id :1,
@@ -36,19 +36,15 @@ const NavBar = () => {
 }, 
   ];
   return (
-    <div className="flex justify-between items-center w-full h-20 bg-black text-white px-4 fixed">
-        {/* <div>
+    <div className="flex justify-between items-center w-full h-20 bg-black text-white px-4 fixed top-0 left-0 z-50">
+        <div>
             <h1 className=""><img src='logo1.png' alt='logo' /></h1>
-        </div> */}
+        </div>
         <ul className="hidden md:flex">
   {links.map(({id, link}) => (
-    <li key={id} className="relative w-inline-block px-4 cursor-pointer capitalize text-gray-700 hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500 transition-colors duration-300">
+    <li key={id} className="relative w-inline-block px-4 cursor-pointer capitalize text-white hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500 transition-colors duration-300">
       <Link 
-        href={` /${link}`}  
-        smooth={true} 
-        spy={true} 
-        offset={100} 
-        duration={1000} 
+        href={`/${link}`}  
         className="relative block">
         {link}
        
@@ -66,8 +62,8 @@ const NavBar = () => {
                 {links.map(({id, link})=>(
                         <li key={id}
                         className="px-4 cursor-pointer capitalize py-6 text-4xl">
-                                            <Link onClick={()=>setNav(!nav)}
-                                              href={`/${link}`}  smooth={true} spy={true} offset={-100} duration={500} >{link}</Link>
+                                            <Link onClick={() => setNav(!nav)}
+                                              href={`/${link}`}>{link}</Link>
 
                         </li>
                     ))}

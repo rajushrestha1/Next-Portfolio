@@ -1,5 +1,5 @@
 'use client';
-
+import { Button } from "@/components/ui/button"
 import Link from 'next/link';
 import Image from 'next/image';
 import { TypeAnimation } from 'react-type-animation';
@@ -28,15 +28,18 @@ const Hero = () => {
             I am a motivated and versatile individual, always eager to take on new challenges, 
             with a passion for learning. I am ready to make meaningful contributions and achieve great things.
           </p>
-          <Link
-            href="/portfolio"
-            className="text-white group w-fit m-3 px-5 py-1 flex items-center rounded-full bg-blue-500 hover:bg-gray-800 hover:text-white hover:scale-110 duration-500 cursor-pointer hover:border-blue-950"
-          >
-            Portfolio
-            <span className="group-hover:rotate-90 duration-500">
-              <ChevronRightIcon />
-            </span>
-          </Link>
+         <Button asChild>
+  <Link
+    href="/portfolio"
+    className="text-white group w-fit m-3 px-5 py-1 flex items-center rounded-full bg-blue-500 hover:bg-gray-800 hover:text-white hover:scale-110 duration-500 cursor-pointer hover:border-blue-950"
+  >
+    Portfolio
+    <span className="group-hover:rotate-90 duration-500">
+      <ChevronRightIcon />
+    </span>
+  </Link>
+</Button>
+          
         </div>
 
         {/* Right */}
