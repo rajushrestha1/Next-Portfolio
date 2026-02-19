@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 export default function ContactForm() {
   const [form, setForm] = useState({
     name: "",
@@ -42,7 +44,7 @@ export default function ContactForm() {
         </p>
       )}
 
-      <input
+      <Input
         name="name"
         placeholder="Name"
         onChange={handleChange}
@@ -50,7 +52,7 @@ export default function ContactForm() {
         className="w-full border p-2"
       />
 
-      <input
+      <Input
         name="email"
         type="email"
         placeholder="Email"
@@ -59,7 +61,7 @@ export default function ContactForm() {
         className="w-full border p-2"
       />
 
-      <input
+      <Input
         name="subject"
         placeholder="Subject"
         onChange={handleChange}
@@ -67,7 +69,7 @@ export default function ContactForm() {
         className="w-full border p-2"
       />
 
-      <textarea
+      <Textarea
         name="message"
         placeholder="Message"
         onChange={handleChange}

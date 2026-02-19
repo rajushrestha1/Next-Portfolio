@@ -1,4 +1,5 @@
-// import { MsgIcon, PhoneIcon } from '@/utils/icons'
+import EmailIcon from '@mui/icons-material/Email';
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import ContactForm from './ContactForm'
 
 const ContactSection = () => {
@@ -20,11 +21,13 @@ const ContactSection = () => {
           <a
             href="mailto:shrestharaju010101@gmail.com"
             className="text-neutral hover:text-accent flex items-center gap-1 font-light transition-colors duration-300">
+             <EmailIcon className="w-5 h-5 mr-2" />
              shrestharaju010101@gmail.com
           </a>
           <a
             href="tel:+977 9825821351"
             className="text-neutral hover:text-accent flex items-center gap-1 font-light transition-colors duration-300">
+             <ContactPhoneIcon className="w-5 h-5 mr-2" />
              +977 9825821351
           </a>
         </div>
