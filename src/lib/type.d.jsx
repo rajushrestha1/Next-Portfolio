@@ -16,3 +16,13 @@ export const projects = [
 
   },
 ];
+export const testimonials = [
+  {
+    name: string,
+  title: string,
+  feedback: string,
+  image: string,
+  stars: number,
+  createdAt: string
+  }
+];
