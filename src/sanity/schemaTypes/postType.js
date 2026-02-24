@@ -12,11 +12,17 @@ export const postType = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-      },
+  name: "slug",
+  type: "slug",
+  options: {
+    source: "title",
+    maxLength: 96,
+    slugify: input =>
+      input
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .slice(0, 96)
+  },
     }),
     defineField({
       name: 'author',
