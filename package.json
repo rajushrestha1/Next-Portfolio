@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    
     "build": "next build",
     "start": "next start"
   },
@@ -19,6 +18,7 @@
     "@mui/icons-material": "^7.3.8",
     "@mui/material": "^7.3.8",
     "@radix-ui/react-slot": "^1.2.4",
+    "@sanity/code-input": "^7.0.8",
     "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.22.0",

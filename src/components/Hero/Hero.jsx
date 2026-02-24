@@ -2,52 +2,50 @@
 import { Button } from "@/components/ui/button"
 import Link from 'next/link';
 import Image from 'next/image';
-import { TypeAnimation } from 'react-type-animation';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { useRoleSwitcher } from "@/hooks/useRoleSwitcher";
 
 import Ellipse, { useRotatingAnimation } from './Ellipse';
 
 const Hero = () => {
   const ellipseRef = useRotatingAnimation(0.01); // slower rotation
+  const role = useRoleSwitcher({ roles: ['FULLSTACK DEVELOPER', 'Backend Developer', 'SEO Expert'] })
 
   return (
-    <div className="h-screen w-full lg:pl-44 bg-gradient-to-b from-black via-black to-gray-800 relative">
-      <div className="max-w-screen-lg flex flex-col mx-auto items-center justify-center h-full px-4 md:flex-row">
+    <div className="min-h-screen w-full lg:pl-44 bg-linear-to-br from-slate-900 via-slate-800 to-indigo-900">
+      <div className="max-w-5xl flex flex-col mx-auto items-center justify-center min-h-screen px-4 md:flex-row gap-8">
         
         {/* Left */}
-        <div className="flex flex-col justify-center h-full">
-          <h1 className="text-4xl md:text-7xl font-bold text-yellow-500">
-            <TypeAnimation
-              sequence={['I Am A Web Developer', 1000, 'I Am Backend Developer', 1000]}
-              wrapper="span"
-              speed={5}
-              repeat={Infinity}
-            />
+        <div className="flex flex-col justify-center h-full py-12 md:py-0">
+          <h1>
+            <span className="text-neutral mb-2 block text-3xl font-bold">Hi - I'm Raju Shrestha</span>
+            <span className="text-accent block text-[1.75rem] font-bold">{role}</span>
+
           </h1>
-          <p className="text-gray-500 py-4 max-w-md">
+          <p className="text-slate-300  py-6 max-w-md text-lg leading-relaxed ibm-plex-mono-regular">
             I am a motivated and versatile individual, always eager to take on new challenges, 
             with a passion for learning. I am ready to make meaningful contributions and achieve great things.
           </p>
-         <Button asChild>
-  <Link
-    href="/portfolio"
-    className="text-white group w-fit m-3 px-5 py-1 flex items-center rounded-full bg-blue-500 hover:bg-gray-800 hover:text-white hover:scale-110 duration-500 cursor-pointer hover:border-blue-950"
-  >
-    Portfolio
-    <span className="group-hover:rotate-90 duration-500">
-      <ChevronRightIcon />
-    </span>
-  </Link>
-</Button>
+          <Button asChild>
+            <Link
+              href="/portfolio"
+              className="text-white group w-fit px-6 py-3 flex items-center rounded-lg bg-linear-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-500 cursor-pointer hover:shadow-lg hover:shadow-cyan-500/50 transform hover:scale-105"
+            >
+              Portfolio
+              <span className="group-hover:translate-x-1 duration-500 ml-2">
+                <ChevronRightIcon />
+              </span>
+            </Link>
+          </Button>
           
         </div>
 
         {/* Right */}
-        <div className="relative flex items-center justify-center w-full md:w-1/2 h-full">
+        <div className="relative flex items-center justify-center w-full md:w-1/2 h-full min-h-96">
           {/* Rotating Ellipse behind */}
           <Ellipse
             ref={ellipseRef}
-            className="absolute w-80 h-80 md:w-96 md:h-96 lg:w-[25.75rem] lg:h-[25.75rem] text-blue-500"
+            className="absolute w-80 h-80 md:w-96 md:h-96 lg:w-103 lg:h-103 text-cyan-400 opacity-60"
           />
 
           {/* Image in the center */}
@@ -56,7 +54,7 @@ const Hero = () => {
             alt="home"
             width={300}
             height={300}
-            className="rounded-full relative z-10"
+            className="rounded-full relative z-10 shadow-2xl"
           />
         </div>
       </div>

@@ -47,7 +47,7 @@ const MarqueeWrapper = ({ className = '' }) => {
   }, [windowWidth])
 
   return (
-    <div className={`relative overflow-x-hidden w-full ${className}`}>
+    <div className={`relative overflow-x-hidden bg-secondary w-full ${className}`}>
       <div
         ref={elementRef}
         className="w-max whitespace-nowrap flex items-center gap-10 p-5 lg:p-7"
