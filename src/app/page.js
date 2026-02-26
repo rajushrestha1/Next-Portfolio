@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero/Hero";
 import MarqueeWrapper from "@/components/MarqueeWrapper";
-import ContactSection from "@/components/contact/ContactSection";
+import ContactSection from "@/app/contact/ContactSection";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
@@ -78,7 +78,7 @@ export default async function Home() {
       {/* ===================== */}
       {/* 🔥 Latest Projects */}
       {/* ===================== */}
-      <section className="w-full px-5 py-16 bg-gradient-to-br from-black via-slate-900 to-black text-white">
+      <section className="w-full px-5 py-16 bg-linear-to-br from-slate-900 via-slate-800 to-indigo-900 text-white">
         <h2 className="text-3xl font-bold mb-10 text-center">Latest Projects</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project) => (
@@ -169,7 +169,7 @@ export default async function Home() {
       {/* ===================== */}
       {/* ⭐ Testimonials */}
       {/* ===================== */}
-      <section className="w-full px-5 py-16 bg-black text-white">
+      <section className="w-full px-5 py-16 bg-linear-to-br from-slate-900 via-slate-800 to-indigo-900 text-white">
         <h2 className="text-3xl font-bold mb-12 text-center">Testimonials</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((t) => (

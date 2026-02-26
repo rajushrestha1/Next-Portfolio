@@ -1,9 +1,17 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { SiJavascript, SiReact, SiNodedotjs, SiExpress, SiSocketdotio, SiNextdotjs } from 'react-icons/si'
+import Wave from 'react-wavify'
+import {
+  SiJavascript,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiSocketdotio,
+  SiNextdotjs,
+} from 'react-icons/si'
 
-// Skill list using react-icons
+// Skill list
 const skillList = [
   { name: 'JavaScript', icon: <SiJavascript className="w-10 h-10 text-yellow-400" /> },
   { name: 'React.js', icon: <SiReact className="w-10 h-10 text-blue-500" /> },
@@ -19,6 +27,7 @@ const MarqueeWrapper = ({ className = '' }) => {
 
   const marqueeAnimation = (element, elementWidth, windowWidth) => {
     if (!element) return
+
     element.animate(
       [
         { transform: 'translateX(0)' },
@@ -47,10 +56,12 @@ const MarqueeWrapper = ({ className = '' }) => {
   }, [windowWidth])
 
   return (
-    <div className={`relative overflow-x-hidden bg-secondary w-full ${className}`}>
+    <div className={`relative overflow-hidden bg-linear-to-br from-slate-900 via-slate-800 to-indigo-900 w-full ${className}`}>
+      
+      {/* Skills Marquee */}
       <div
         ref={elementRef}
-        className="w-max whitespace-nowrap flex items-center gap-10 p-5 lg:p-7"
+        className="relative z-10 w-max whitespace-nowrap flex items-center gap-10 p-5 lg:p-7"
       >
         {skillList.map((skill) => (
           <div
@@ -58,10 +69,33 @@ const MarqueeWrapper = ({ className = '' }) => {
             className="flex flex-col items-center justify-center"
           >
             {skill.icon}
-            <span className="mt-2 text-sm font-medium">{skill.name}</span>
+            <span className="mt-2 text-sm font-medium text-white">
+              {skill.name}
+            </span>
           </div>
         ))}
       </div>
+
+      {/* Wave Background */}
+<Wave
+  fill="url(#secondaryWave)"
+  paused={false}
+  options={{
+    height: 70,
+    amplitude: 35,
+    speed: 0.2,
+    points: 4,
+  }}
+  className="absolute bottom-0 left-0 w-full"
+>
+  <defs>
+    <linearGradient id="secondaryWave" gradientTransform="rotate(90)">
+      <stop offset="0%" stopColor="#0f2027" />
+      <stop offset="50%" stopColor="#203a43" />
+      <stop offset="100%" stopColor="#2c5364" />
+    </linearGradient>
+  </defs>
+</Wave>
     </div>
   )
 }

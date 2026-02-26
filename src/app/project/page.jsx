@@ -19,7 +19,7 @@ export default async function ProjectsPage() {
   const projects = await getProjects()
 
   return (
-    <div className="min-h-screen bg-black text-white px-6 py-16">
+    <div className="min-h-screen bg-gradient-to-t from-slate-900 to-slate-800 text-white px-6 py-16">
       
       <h1 className="text-4xl font-bold text-center mb-12">
         My Projects

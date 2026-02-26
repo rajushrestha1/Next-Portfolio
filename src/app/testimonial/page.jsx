@@ -33,14 +33,14 @@ export default async function TestimonialsPage() {
   const testimonials = await getTestimonials();
 
   return (
-    <div className="min-h-screen bg-black text-white px-6 py-16">
+    <div className="min-h-screen  text-white px-6 py-16">
       <h1 className="text-4xl font-bold mb-12 text-center">Testimonials</h1>
 
       <div className="grid md:grid-cols-3 gap-8">
         {testimonials.map((t) => (
           <div
             key={t._id}
-            className="bg-gray-900 rounded-xl p-6 flex flex-col items-center text-center shadow-lg hover:scale-105 transition duration-300"
+            className="bg-linear-to-br from-slate-900 via-slate-800 to-indigo-900 rounded-xl p-6 flex flex-col items-center text-center shadow-lg hover:scale-105 transition duration-300"
           >
             {t.image && (
               <img
