@@ -1,9 +1,8 @@
 'use client';
-import { Button } from "@/components/ui/button"
-import Link from 'next/link';
 import Image from 'next/image';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useRoleSwitcher } from "@/hooks/useRoleSwitcher";
+import DownloadIcon from '@mui/icons-material/Download';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 import Ellipse, { useRotatingAnimation } from './Ellipse';
 
@@ -26,17 +25,25 @@ const Hero = () => {
             I am a motivated and versatile individual, always eager to take on new challenges, 
             with a passion for learning. I am ready to make meaningful contributions and achieve great things.
           </p>
-          <Button asChild>
-            <Link
-              href="/portfolio"
-              className="text-white group w-fit px-6 py-3 flex items-center rounded-lg bg-linear-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-500 cursor-pointer hover:shadow-lg hover:shadow-cyan-500/50 transform hover:scale-105"
-            >
-              Portfolio
-              <span className="group-hover:translate-x-1 duration-500 ml-2">
-                <ChevronRightIcon />
-              </span>
-            </Link>
-          </Button>
+          <div className="flex gap-4 pt-4 flex-wrap">
+              <a
+            href="resume.pdf"
+            download="resume.pdf"
+            className="flex items-center space-x-2 px-6 py-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 hover:from-cyan-500/20 hover:to-blue-500/20 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-500/30"
+          >
+            <DownloadIcon />
+            <span className="font-medium">Resume</span>
+          </a>
+           <a
+                href="https://www.linkedin.com/in/raju-shrestha-6b5070245/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cyan-400 transition flex items-center space-x-2 px-6 py-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 hover:from-cyan-500/20 hover:to-blue-500/20 rounded-lg text-slate-300 hover:text-cyan-400 transition-all duration-300 border border-cyan-500/30"
+              >
+                <LinkedInIcon />
+                <span className="font-medium">LinkedIn</span>
+              </a>
+          </div>
           
         </div>
 

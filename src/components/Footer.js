@@ -147,8 +147,7 @@ const Footer = () => {
         <div className="text-center pt-6 border-t border-slate-700/50">
           <p className="text-xs text-slate-500">
             © 2026 • All Rights Reserved • Built with{" "}
-            <span className="text-cyan-400">Next.js</span> &{" "}
-            <span className="text-cyan-400">Sanity CMS</span>
+            
           </p>
         </div>
       </div>

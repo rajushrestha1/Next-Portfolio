@@ -9,16 +9,25 @@ import {
   SiExpress,
   SiSocketdotio,
   SiNextdotjs,
+  SiMongodb,
+  SiTailwindcss,
+  SiHtml5,
 } from 'react-icons/si'
-
+import { GithubIcon } from '@sanity/icons'
+import CssIcon from '@mui/icons-material/Css';
 // Skill list
 const skillList = [
   { name: 'JavaScript', icon: <SiJavascript className="w-10 h-10 text-yellow-400" /> },
   { name: 'React.js', icon: <SiReact className="w-10 h-10 text-blue-500" /> },
   { name: 'Node.js', icon: <SiNodedotjs className="w-10 h-10 text-green-500" /> },
-  { name: 'Express.js', icon: <SiExpress className="w-10 h-10 text-gray-500" /> },
+  { name: 'Express.js', icon: <SiExpress className="w-10 h-10 text-gray-400" /> },
   { name: 'Socket.io', icon: <SiSocketdotio className="w-10 h-10 text-purple-500" /> },
   { name: 'Next.js', icon: <SiNextdotjs className="w-10 h-10 text-white" /> },
+  {name: 'MongoDB', icon: <SiMongodb className="w-10 h-10 text-green-700" /> },
+  {name: 'HTML5', icon: <SiHtml5 className="w-10 h-10 text-orange-500" /> },
+  {name: 'CSS3', icon: <CssIcon className="w-10 h-10 text-blue-600" /> },
+  {name: 'GitHub', icon: <GithubIcon className="w-10 h-10 text-white" /> },
+  {name: 'Tailwind CSS', icon: <SiTailwindcss className="w-10 h-10 text-teal-400" /> },
 ]
 
 const MarqueeWrapper = ({ className = '' }) => {
