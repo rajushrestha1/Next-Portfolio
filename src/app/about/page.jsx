@@ -26,12 +26,24 @@ export default function AboutPage() {
           </div>
 
           {/* About Content */}
-          <div className="space-y-6 text-gray-300 leading-relaxed">
+          <div className="space-y-6 text-gray-300 leading-relaxed ibm-plex-mono-regular">
             <p>
-              Hi! I'm a passionate full-stack developer with expertise in building
-              modern web applications. My journey in tech started during my college
-              years, where I discovered my love for creating innovative solutions
-              through code.
+              Junior Backend Developer with hands-on experience in building scalable MERN stack applications using
+Node.js, Express.js, and MongoDB. Skilled in designing RESTful APIs, handling database operations,
+and implementing real-time features with WebSockets. Passionate about clean code and backend problem solving.
+<br />
+<br />
+I began my web development journey in 2023 as a frontend developer, building responsive and
+user-friendly interfaces. Later, I started exploring backend technologies, gaining experience in
+RESTful APIs, databases, and server-side development, becoming comfortable with full-stack
+development.
+<br />
+<br />
+I have been working as an SEO Expert since 2025, helping websites improve their search visibility
+and rankings. I am experienced in using tools like Google Analytics, Google Search Console,
+SEMrush, and Ahrefs to optimize content, track performance, and implement effective SEO
+strategies.
+
             </p>
 
             

@@ -22,9 +22,9 @@ const Hero = () => {
 
           </h1>
           <p className="text-slate-300  py-6 max-w-md text-lg leading-relaxed ibm-plex-mono-regular">
-            I am a motivated and versatile individual, always eager to take on new challenges, 
-            with a passion for learning. I am ready to make meaningful contributions and achieve great things.
-          </p>
+Junior Backend Developer with hands-on experience in building scalable MERN stack applications using
+Node.js, Express.js, and MongoDB. Skilled in designing RESTful APIs, handling database operations,
+and implementing real-time features with WebSockets. Passionate about clean code and backend problemsolving.          </p>
           <div className="flex gap-4 pt-4 flex-wrap">
               <a
             href="resume.pdf"
