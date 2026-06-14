@@ -34,7 +34,7 @@ async function getPost(slugParam) {
 function generateToc(body) {
   const headings = [];
   body.forEach((block) => {
-    if (block._type === "block" && ["h1", "h2", "h3"].includes(block.style)) {
+    if (block._type === "block" && ["h2", "h3", "h4"].includes(block.style)) {
       const id = block.children.map(c => c.text).join("").toLowerCase().replace(/\s+/g, "-");
       headings.push({ text: block.children.map(c => c.text).join(""), style: block.style, id });
     }
@@ -76,9 +76,9 @@ export default async function SinglePost({ params }) {
           />
         )}
 
-        <div className="prose prose-lg max-w-none ibm-plex-mono-regular">
-          <PortableText value={post.body} components={ptComponents} />
-        </div>
+        <div className="max-w-none ibm-plex-mono-regular">
+  <PortableText value={post.body} components={ptComponents} />
+</div>
       </div>
 
       {/* Table of Contents */}

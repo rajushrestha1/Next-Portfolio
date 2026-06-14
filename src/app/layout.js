@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={ibmPlex.className}>
       <body>
         {/* Background gradient div */}
-        <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,_#0a1e2b,_#0f3a4c,_#022d3c)] -z-10 will-change-transform"></div>
+        {/* <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,_#0a1e2b,_#0f3a4c,_#022d3c)] -z-10 will-change-transform"></div> */}
 
         {/* Page content */}
         <Navbar />

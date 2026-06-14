@@ -17,22 +17,19 @@ export const ptComponents = {
     ),
   },
   block: {
-    normal: ({ children }) => <p className="mb-6 leading-relaxed">{children}</p>,
-    h1: ({ children }) => {
-      const id = children.join("").toLowerCase().replace(/\s+/g, "-");
-      return <h1 id={id} className="text-3xl font-bold mb-6">{children}</h1>;
-    },
     h2: ({ children }) => {
-      const id = children.join("").toLowerCase().replace(/\s+/g, "-");
-      return <h2 id={id} className="text-2xl font-semibold mb-5">{children}</h2>;
-    },
-    h3: ({ children }) => {
-      const id = children.join("").toLowerCase().replace(/\s+/g, "-");
-      return <h3 id={id} className="text-xl font-semibold mb-4">{children}</h3>;
-    },
-    blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-gray-400 pl-4 italic mb-6">{children}</blockquote>
-    ),
+  const id = children.join("").toLowerCase().replace(/\s+/g, "-");
+  return <h2 id={id} className="text-3xl font-bold mb-5 mt-10 text-white">{children}</h2>;
+},
+h3: ({ children }) => {
+  const id = children.join("").toLowerCase().replace(/\s+/g, "-");
+  return <h3 id={id} className="text-2xl font-bold mb-4 mt-8 text-white">{children}</h3>;
+},
+h4: ({ children }) => {
+  const id = children.join("").toLowerCase().replace(/\s+/g, "-");
+  return <h4 id={id} className="text-xl font-semibold mb-3 mt-6 text-white">{children}</h4>;
+},
+normal: ({ children }) => <p className="mb-6 leading-relaxed text-base text-gray-300">{children}</p>,
     ul: ({ children }) => <ul className="list-disc pl-8 mb-6">{children}</ul>,
     ol: ({ children }) => <ol className="list-decimal pl-8 mb-6">{children}</ol>,
   },

@@ -28,7 +28,7 @@ const Footer = () => {
               Raju Shrestha - Web Developer
             </h2>
             <p className="text-slate-300 leading-7 text-sm">
-              Looking for a reliable web developer in Nepal? With 15+ years of
+              Looking for a reliable web developer in Nepal? With 3+ years of
               experience, I specialize in building fast, secure, and scalable
               websites and web applications tailored to real business needs.
               Learn more about me and how I help businesses build future-ready

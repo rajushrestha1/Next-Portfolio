@@ -11,7 +11,7 @@ import { Github } from "lucide-react";
 /* -------------------- */
 async function getLatestProjects() {
   const query = `
-    *[_type == "project"] | order(_createdAt desc)[0...3]{
+    *[_type == "project"] | order(_createdAt desc)[0...4]{
       _id,
       topic,
       shortDescription,
@@ -82,75 +82,70 @@ export default async function Home() {
       {/* ===================== */}
       {/* 🔥 Latest Projects */}
       {/* ===================== */}
-      <section className="w-full px-5 md:px-10 py-20 bg-[#021426] text-white">
+      <section className="w-full px-5 md:px-10 py-20 text-white">
   {/* Heading */}
-  <div className="max-w-7xl mx-auto mb-14 flex items-center justify-between">
-    <h2 className="text-xl md:text-2xl font-bold text-[#7aa2d6] tracking-wide font-mono">
+  <div className="max-w-7xl mx-auto mb-12 flex items-center justify-between">
+    <h2 className="text-lg md:text-xl font-bold text-[#7aa2d6] tracking-wide font-mono">
       // Latest Projects
     </h2>
 
     <Link
       href="/project"
-      className="
-        text-cyan-300
-        hover:text-cyan-200
-        text-lg
-        font-mono
-        underline
-        underline-offset-4
-      "
+      className="text-cyan-300 hover:text-cyan-200 text-sm md:text-base font-mono underline underline-offset-4"
     >
       View All
     </Link>
   </div>
 
   {/* Grid */}
-  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+  <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2 gap-8">
     {projects.map((project) => (
       <div
         key={project._id}
         className="
           relative
           border border-[#17304a]
-          rounded-[22px]
-          bg-[#03192e]
+          rounded-2xl
+          bg-[#041528]
           p-6
           overflow-hidden
-          hover:border-cyan-400/40
           transition-all
           duration-300
+          hover:border-cyan-400/50
+          hover:-translate-y-1
+          hover:shadow-[0_0_30px_rgba(34,211,238,0.12)]
         "
       >
         {/* Top */}
-        <div className="flex items-start justify-between gap-5">
+        <div className="flex items-start justify-between gap-4">
           {/* Left */}
           <div className="flex-1">
-            <h3 className="text-[30px] md:text-[36px] font-bold text-[#4f6fff] font-mono mb-4 leading-none">
+            <h3 className="text-xl md:text-2xl font-bold text-[#4f6fff] font-mono mb-3">
               {project.topic}
             </h3>
 
             {/* Badge */}
             {project.badge && (
-              <div className="inline-flex items-center gap-2 bg-[#08253f] border border-[#113c60] px-3 py-1 rounded-md mb-5">
-                <span className="text-cyan-300 text-sm font-semibold font-mono">
+              <div className="inline-flex items-center gap-2 bg-[#08253f] border border-[#113c60] px-3 py-1 rounded-md mb-4">
+                <span className="text-cyan-300 text-xs font-semibold font-mono">
                   {project.badge}
                 </span>
 
                 {project.badgeEmoji && (
-                  <span className="text-sm">{project.badgeEmoji}</span>
+                  <span className="text-xs">{project.badgeEmoji}</span>
                 )}
               </div>
             )}
 
             {/* Metadata */}
             {project.metadata && project.metadata.length > 0 && (
-              <div className="flex flex-wrap gap-5 mb-6">
+              <div className="flex flex-wrap gap-4 mb-4">
                 {project.metadata.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2 text-[#f6f6f6] text-lg font-mono"
+                    className="flex items-center gap-2 text-white text-sm font-mono"
                   >
-                    <span className="text-[#d8ff36] text-xl">
+                    <span className="text-[#d8ff36] text-base">
                       {item.icon}
                     </span>
                     <span>{item.label}</span>
@@ -164,13 +159,12 @@ export default async function Home() {
           {project.image && (
             <div
               className="
-                w-40 md:w-44
-                h-24
-                rounded-xl
+                w-28 md:w-36
+                h-20
+                rounded-lg
                 overflow-hidden
                 border border-[#1f3953]
                 shrink-0
-                mt-1
               "
             >
               <img
@@ -187,17 +181,15 @@ export default async function Home() {
           className="
             mt-4
             bg-[#06203a]
-            border border-[#0d2b46]
-            rounded-2xl
-            p-5
-            min-h-[145px]
+            rounded-xl
+            p-4
           "
         >
           <p
             className="
-              text-[#7c9ac0]
-              text-[20px] md:text-[22px]
-              leading-[1.8]
+              text-[#8aa4c7]
+              text-sm md:text-base
+              leading-7
               font-mono
             "
           >
@@ -206,7 +198,7 @@ export default async function Home() {
         </div>
 
         {/* Links */}
-        <div className="flex items-center gap-7 mt-6 flex-wrap">
+        <div className="flex items-center gap-6 mt-5 flex-wrap">
           {project.livePreview && (
             <Link
               href={project.livePreview}
@@ -216,14 +208,14 @@ export default async function Home() {
                 flex items-center gap-2
                 text-cyan-300
                 hover:text-cyan-200
-                text-[22px] md:text-[24px]
-                font-bold
+                text-sm md:text-base
+                font-semibold
                 font-mono
                 underline
                 underline-offset-4
               "
             >
-              <span className="text-[22px]">⦿</span>
+              <span>⦿</span>
               Live Preview
             </Link>
           )}
@@ -237,21 +229,21 @@ export default async function Home() {
                 flex items-center gap-2
                 text-cyan-300
                 hover:text-cyan-200
-                text-[22px] md:text-[24px]
-                font-bold
+                text-sm md:text-base
+                font-semibold
                 font-mono
                 underline
                 underline-offset-4
               "
             >
-              <Github className="h-6 w-6 shrink-0" />
-              Github Link
+              <Github className="h-4 w-4 shrink-0" />
+              Github
             </Link>
           )}
         </div>
 
         {/* Glow */}
-        <div className="absolute inset-0 rounded-[22px] pointer-events-none shadow-[0_0_40px_rgba(0,255,255,0.03)]" />
+        <div className="absolute inset-0 rounded-2xl pointer-events-none shadow-[0_0_50px_rgba(0,255,255,0.02)]" />
       </div>
     ))}
   </div>
@@ -259,7 +251,7 @@ export default async function Home() {
       {/* ===================== */}
       {/* 📰 Latest Blogs */}
       {/* ===================== */}
-      <section className="w-full bg-[#020d1b] text-white px-6 md:px-14 py-20">
+      <section className="w-full text-white px-6 md:px-14 py-20">
   <div className="max-w-7xl mx-auto">
     {/* Heading */}
     <div className="mb-14">
@@ -404,7 +396,7 @@ export default async function Home() {
       {/* ===================== */}
       {/* ⭐ Testimonials */}
       {/* ===================== */}
-      <section className="w-full px-5 py-16 bg-linear-to-br from-slate-900 via-slate-800 to-indigo-900 text-white">
+      <section className="w-full px-5 py-16 text-white">
         <h2 className="text-3xl font-bold mb-12 text-center">Testimonials</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((t) => (

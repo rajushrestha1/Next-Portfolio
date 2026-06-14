@@ -8,46 +8,80 @@ import { useState } from "react";
 const NavBar = () => {
   const [nav, setNav] = useState(false);
 
-  const links = [
+  const centerLinks = [
     { id: 1, label: "Home", href: "/" },
-    { id: 2, label: "About Me", href: "/about" },
+    { id: 2, label: "About", href: "/about" },
     { id: 3, label: "Portfolio", href: "/project" },
     { id: 4, label: "Blog", href: "/blog" },
-    { id: 5, label: "Contact", href: "/contact" },
   ];
 
   return (
-    <div className="flex justify-between items-center w-full h-15 bg-slate-500 text-white px-4 fixed top-0 left-0 z-50 border-b border-slate-700/50">
-      <div>
-        <h1><img src="/logo1.png" alt="logo" className="h-50 w-auto" /></h1>
-      </div>
+    <div className="fixed top-0 left-0 z-50 w-full border-b backdrop-blur-lg">
+      <div className="flex items-center justify-between h-15 px-6 md:px-12">
+        
+        {/* Logo */}
+        <div className="flex items-center">
+          <img
+            src="/logo1.png"
+            alt="logo"
+            className="h-50 w-auto"
+          />
+        </div>
 
-      <ul className="hidden md:flex gap-1">
-        {links.map(({ id, label, href }) => (
-          <li key={id} className="relative px-4 py-2 cursor-pointer capitalize text-slate-300 hover:text-cyan-400 transition-all duration-300 rounded-lg hover:bg-slate-700/50">
-            <Link href={href} className="relative block font-medium text-sm uppercase tracking-wide">
-              {label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      <div
-        onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 text-slate-300 md:hidden hover:text-cyan-400 transition-colors"
-      >
-        {nav ? <MenuOpenIcon /> : <MenuIcon />}
-      </div>
-
-      {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-linear-to-b from-slate-900 to-slate-800 text-slate-300">
-          {links.map(({ id, label, href }) => (
-            <li key={id} className="px-4 py-6 text-2xl">
-              <Link href={href} onClick={() => setNav(false)}>
+        {/* Center Menu */}
+        <ul className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-3">
+          {centerLinks.map(({ id, label, href }) => (
+            <li key={id}>
+              <Link
+                href={href}
+                className="relative px-5 py-2 text-sm font-medium uppercase tracking-wider text-slate-300 transition-all duration-300 rounded-full hover:text-cyan-400 hover:bg-slate-800 group"
+              >
                 {label}
+
+                {/* Animated underline */}
+                <span className="absolute left-1/2 bottom-1 h-[2px] w-0 bg-cyan-400 transition-all duration-300 group-hover:w-3/4 group-hover:left-[12%]"></span>
               </Link>
             </li>
           ))}
+        </ul>
+
+        {/* Contact Button Right */}
+        <div className="hidden md:flex items-center gap-4">
+          <Link
+            href="/contact"
+            className="relative overflow-hidden px-5 py-2 rounded-full border text-sm border-cyan-400 text-cyan-400 font-medium uppercase tracking-wide transition-all duration-300 hover:text-white group"
+          >
+            <span className="absolute inset-0 w-0 bg-cyan-400 transition-all duration-500 group-hover:w-full"></span>
+
+            <span className="relative z-10">Contact</span>
+          </Link>
+        </div>
+
+        {/* Mobile Menu Icon */}
+        <div
+          onClick={() => setNav(!nav)}
+          className="md:hidden cursor-pointer text-slate-300 z-50"
+        >
+          {nav ? <MenuOpenIcon /> : <MenuIcon />}
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {nav && (
+        <ul className="md:hidden flex flex-col justify-center items-center gap-8 h-screen bg-slate-900 text-slate-300">
+          {[...centerLinks, { id: 5, label: "Contact", href: "/contact" }].map(
+            ({ id, label, href }) => (
+              <li key={id}>
+                <Link
+                  href={href}
+                  onClick={() => setNav(false)}
+                  className="text-2xl font-medium hover:text-cyan-400 transition-colors duration-300"
+                >
+                  {label}
+                </Link>
+              </li>
+            )
+          )}
         </ul>
       )}
     </div>

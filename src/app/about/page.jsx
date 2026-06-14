@@ -6,7 +6,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-black text-white px-6 md:px-16 py-16">
+    <div className="min-h-screen  bg-[#06203a] text-white px-6 md:px-16 py-16">
       
       {/* ------------------ About Section ------------------ */}
       <section>
