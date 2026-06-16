@@ -33,10 +33,7 @@ Node.js, Express.js, and MongoDB. Skilled in designing RESTful APIs, handling da
 and implementing real-time features with WebSockets. Passionate about clean code and backend problem solving.
 <br />
 <br />
-I began my web development journey in 2023 as a frontend developer, building responsive and
-user-friendly interfaces. Later, I started exploring backend technologies, gaining experience in
-RESTful APIs, databases, and server-side development, becoming comfortable with full-stack
-development.
+Full-stack developer experienced in building scalable and secure web applications using the MERN stack and Next.js ecosystem. Developed a secure Online Voting System with face recognition and “one person, one vote” enforcement along with real-time vote counting. Built a MERN-based e-commerce Book Store with full CRUD operations and payment integration. Created a real-time Chat App API using Node.js, Express, and WebSockets for instant messaging. Also developed a Company Asset Management System using Next.js, Node.js, MongoDB, Cloudinary, and ShadCN UI, featuring asset tracking, role-based authentication, employee management, and dashboard analytics.
 <br />
 <br />
 I have been working as an SEO Expert since 2025, helping websites improve their search visibility
