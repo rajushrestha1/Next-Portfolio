@@ -14,7 +14,7 @@ const ibmPlex = IBM_Plex_Mono({
 export const metadata = {
   title: "Raju Shrestha | Full Stack Developer",
   description: "Next.js, MERN Stack & PostgreSQL Developer Portfolio",
-  keywords: "Next.js Developer, MERN Developer, Nepal Software Engineer",
+  keywords: "Next.js Developer, MERN Developer, Nepal Software Engineer, Web Developer In Nepal, Raju Shrestha Portfolio, Full Stack Developer, Node.js, React.js, MongoDB, PostgreSQL",
 };
 
 export default function RootLayout({ children }) {
