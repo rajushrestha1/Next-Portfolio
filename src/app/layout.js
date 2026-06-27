@@ -1,34 +1,109 @@
-// app/layout.jsx or app/layout.js
+// ============================================================
+// app/layout.js
+// ============================================================
+
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { IBM_Plex_Mono } from 'next/font/google';
+import JsonLd from "@/components/JsonLd";
+import { DEFAULT_SEO, BASE_URL } from "@/lib/seoConfig";
+import { IBM_Plex_Mono } from "next/font/google";
 
-// Import IBM Plex Mono font (all weights + italic)
+// IBM Plex Mono Font
 const ibmPlex = IBM_Plex_Mono({
-  subsets: ['latin'],
-  weight: ['100','200','300','400','500','600','700'],
-  style: ['normal','italic'],
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
+// Global Metadata
 export const metadata = {
-  title: "Raju Shrestha | Full Stack Developer",
-  description: "Next.js, MERN Stack & PostgreSQL Developer Portfolio",
-  keywords: "Next.js Developer, MERN Developer, Nepal Software Engineer, Web Developer In Nepal, Raju Shrestha Portfolio, Full Stack Developer, Node.js, React.js, MongoDB, PostgreSQL",
+  metadataBase: new URL(BASE_URL),
+
+  title: {
+    default: DEFAULT_SEO.title,
+    template: `%s | ${DEFAULT_SEO.siteName}`,
+  },
+
+  description: DEFAULT_SEO.description,
+  keywords: DEFAULT_SEO.keywords,
+
+  authors: [
+    {
+      name: DEFAULT_SEO.author,
+      url: BASE_URL,
+    },
+  ],
+
+  creator: DEFAULT_SEO.author,
+  publisher: DEFAULT_SEO.author,
+
+  openGraph: {
+    type: "website",
+    locale: DEFAULT_SEO.locale,
+    url: BASE_URL,
+    siteName: DEFAULT_SEO.siteName,
+    title: DEFAULT_SEO.title,
+    description: DEFAULT_SEO.description,
+    images: [
+      {
+        url: `${BASE_URL}/og-default.png`,
+        width: 1200,
+        height: 630,
+        alt: DEFAULT_SEO.title,
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_SEO.title,
+    description: DEFAULT_SEO.description,
+    creator: DEFAULT_SEO.twitterHandle,
+    images: [`${BASE_URL}/og-default.png`],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
+
+  manifest: "/site.webmanifest",
+
+  verification: {
+    "google": "google6bd963068bfaf2ad.html",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={ibmPlex.className}>
+    <html lang="en" className={ibmPlex.className} suppressHydrationWarning>
       <body>
-        {/* Background gradient div */}
-        {/* <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,_#0a1e2b,_#0f3a4c,_#022d3c)] -z-10 will-change-transform"></div> */}
+        {/* Global Structured Data */}
+        <JsonLd type="person" />
+        <JsonLd type="website" />
 
-        {/* Page content */}
+        {/* Navbar */}
         <Navbar />
+
+        {/* Main Content */}
         <main className="relative">
           {children}
         </main>
+
+        {/* Footer */}
         <Footer />
       </body>
     </html>

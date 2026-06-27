@@ -57,10 +57,10 @@ and implementing real-time features with WebSockets. Passionate about clean code
 
           {/* Image in the center */}
           <Image
-            src="/home.png"
+            src="/home1.png"
             alt="home"
             width={300}
-            height={300}
+            height={1000}
             className="rounded-full relative z-10 shadow-2xl"
           />
         </div>

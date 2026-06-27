@@ -4,6 +4,11 @@ import { urlFor } from "@/sanity/lib/image";
 /* -------------------- */
 /* Fetch All Testimonials */
 /* -------------------- */
+
+import { generateStaticMetadata } from "@/lib/seoUtils";
+import { PAGE_SEO } from "@/lib/seoConfig";
+ 
+export const metadata = generateStaticMetadata(PAGE_SEO.testimonial);
 async function getTestimonials() {
   const query = `
     *[_type == "testimonial"] | order(_createdAt desc){

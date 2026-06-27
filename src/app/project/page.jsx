@@ -2,7 +2,11 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
 import { Github } from "lucide-react";
-
+import { generateStaticMetadata } from "@/lib/seoUtils";
+import { PAGE_SEO } from "@/lib/seoConfig";
+ 
+export const metadata = generateStaticMetadata(PAGE_SEO.projects);
+ 
 async function getProjects() {
   return await client.fetch(`
     *[_type == "project"] | order(_createdAt desc){

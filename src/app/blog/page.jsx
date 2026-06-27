@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { generateStaticMetadata } from "@/lib/seoUtils";
+import { PAGE_SEO } from "@/lib/seoConfig";
 
 async function getPosts() {
   const query = `
@@ -17,6 +19,8 @@ async function getPosts() {
   `;
   return await client.fetch(query);
 }
+
+export const metadata = generateStaticMetadata(PAGE_SEO.blog);
 
 export default async function BlogPage() {
   const posts = await getPosts();
