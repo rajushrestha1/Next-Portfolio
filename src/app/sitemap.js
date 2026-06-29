@@ -1,13 +1,11 @@
 // ============================================================
 // Dynamic Sitemap — Next.js App Router
-// Place this file at: src/app/sitemap.js
-// Accessible at: https://rajushrestha1.com.np/sitemap.xml
+// src/app/sitemap.js
+// Accessible at: http://rajushrestha1.com.np/sitemap.xml
 // ============================================================
 
 import { BASE_URL } from "@/lib/seoConfig";
-
-// ── Replace these with your actual Sanity fetch functions ────
-// import { getAllBlogSlugs, getAllProjectSlugs } from "@/lib/sanityQueries";
+import { client } from "@/sanity/lib/client";
 
 export default async function sitemap() {
   // ── Static Pages ─────────────────────────────────────────
@@ -51,28 +49,36 @@ export default async function sitemap() {
   ];
 
   // ── Dynamic Blog Pages (from Sanity) ─────────────────────
-  // Uncomment and update once you have your Sanity query ready:
-  //
-  // const blogSlugs = await getAllBlogSlugs(); // returns [{ slug: "post-1", updatedAt: "..." }]
-  // const blogPages = blogSlugs.map((post) => ({
-  //   url: `${BASE_URL}/blog/${post.slug}`,
-  //   lastModified: post.updatedAt ? new Date(post.updatedAt) : new Date(),
-  //   changeFrequency: "weekly",
-  //   priority: 0.7,
-  // }));
+  let blogPages = [];
+  try {
+    const blogSlugs = await client.fetch(
+      `*[_type == "post" && defined(slug.current)]{ "slug": slug.current, _updatedAt }`
+    );
+    blogPages = blogSlugs.map((post) => ({
+      url: `${BASE_URL}/blog/${post.slug}`,
+      lastModified: post._updatedAt ? new Date(post._updatedAt) : new Date(),
+      changeFrequency: "weekly",
+      priority: 0.7,
+    }));
+  } catch (e) {
+    console.error("Sitemap: failed to fetch blog slugs", e);
+  }
 
   // ── Dynamic Project Pages (from Sanity) ──────────────────
-  // const projectSlugs = await getAllProjectSlugs(); // returns [{ slug: "project-1", updatedAt: "..." }]
-  // const projectPages = projectSlugs.map((project) => ({
-  //   url: `${BASE_URL}/project/${project.slug}`,
-  //   lastModified: project.updatedAt ? new Date(project.updatedAt) : new Date(),
-  //   changeFrequency: "monthly",
-  //   priority: 0.7,
-  // }));
+  let projectPages = [];
+  try {
+    const projectSlugs = await client.fetch(
+      `*[_type == "project" && defined(slug.current)]{ "slug": slug.current, _updatedAt }`
+    );
+    projectPages = projectSlugs.map((project) => ({
+      url: `${BASE_URL}/project/${project.slug}`,
+      lastModified: project._updatedAt ? new Date(project._updatedAt) : new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    }));
+  } catch (e) {
+    console.error("Sitemap: failed to fetch project slugs", e);
+  }
 
-  return [
-    ...staticPages,
-    // ...blogPages,      // uncomment when ready
-    // ...projectPages,   // uncomment when ready
-  ];
+  return [...staticPages, ...blogPages, ...projectPages];
 }
