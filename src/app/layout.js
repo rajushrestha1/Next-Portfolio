@@ -1,6 +1,3 @@
-// ============================================================
-// app/layout.js
-// ============================================================
 
 import "./globals.css";
 import Navbar from "../components/Navbar";
@@ -83,7 +80,7 @@ export const metadata = {
   manifest: "/site.webmanifest",
 
   verification: {
-    "google": "google6bd963068bfaf2ad.html",
+    "google": "google6bd963068bfaf2ad",
   },
 };
 
