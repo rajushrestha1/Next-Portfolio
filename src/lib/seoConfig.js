@@ -3,7 +3,7 @@
 // Central config for all metadata, OG tags, and defaults
 // ============================================================
 
-export const BASE_URL = "https://rajushrestha1.com.np";
+export const BASE_URL = "http://rajushrestha1.com.np";
 
 export const DEFAULT_SEO = {
   siteName: "Raju Shrestha",
