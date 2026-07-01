@@ -20,7 +20,9 @@ function PersonJsonLd() {
       // Add your actual social profile URLs below
       "https://github.com/rajushrestha1",       // update
       "https://www.linkedin.com/in/raju-shrestha-6b5070245",  // update
-      "https://www.pinterest.com/shrestharaju010101",      // update
+      "https://www.pinterest.com/shrestharaju010101", 
+            "https://www.facebook.com/raju.stha.123829",
+     // update
     ],
     address: {
       "@type": "PostalAddress",

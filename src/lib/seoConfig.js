@@ -3,12 +3,12 @@
 // Central config for all metadata, OG tags, and defaults
 // ============================================================
 
-export const BASE_URL = "http://rajushrestha1.com.np";
+export const BASE_URL = "https://rajushrestha1.com.np";
 
 export const DEFAULT_SEO = {
   siteName: "Raju Shrestha",
- title: "Web Developer in Nepal | Raju Shrestha | Full Stack Developer",
-description: "Hire Raju Shrestha, a Full Stack Web Developer in Nepal. Specialized in Next.js, React, Node.js and MongoDB. Building fast, modern web applications.",
+  title: "Web Developer in Nepal | Raju Shrestha | Full Stack Developer",
+  description: "Hire Raju Shrestha, a Full Stack Web Developer in Nepal. Specialized in Next.js, React, Node.js and MongoDB. Building fast, modern web applications.",
   keywords: [
     "Raju Shrestha",
     "Full Stack Developer Nepal",
