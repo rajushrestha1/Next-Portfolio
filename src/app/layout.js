@@ -73,8 +73,8 @@ export const metadata = {
   },
 
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/icon.jpeg",
+    shortcut: "/icon.jpeg",
   },
 
   manifest: "/site.webmanifest",

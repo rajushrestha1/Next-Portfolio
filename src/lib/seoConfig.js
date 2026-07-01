@@ -7,9 +7,8 @@ export const BASE_URL = "http://rajushrestha1.com.np";
 
 export const DEFAULT_SEO = {
   siteName: "Raju Shrestha",
-  title: "Raju Shrestha | Full Stack Developer & Designer",
-  description:
-    "Portfolio of Raju Shrestha — a Full Stack Developer & Designer based in Nepal. Specializing in modern web applications, UI/UX design, and scalable solutions.",
+ title: "Web Developer in Nepal | Raju Shrestha | Full Stack Developer",
+description: "Hire Raju Shrestha, a Full Stack Web Developer in Nepal. Specialized in Next.js, React, Node.js and MongoDB. Building fast, modern web applications.",
   keywords: [
     "Raju Shrestha",
     "Full Stack Developer Nepal",

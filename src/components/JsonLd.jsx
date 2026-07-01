@@ -13,14 +13,14 @@ function PersonJsonLd() {
     "@type": "Person",
     name: "Raju Shrestha",
     url: BASE_URL,
-    image: `${BASE_URL}/aboutme.jpg`,
+    Image: `${BASE_URL}/aboutme.jpg`,
     jobTitle: "Full Stack Developer & Designer",
     description: DEFAULT_SEO.description,
     sameAs: [
       // Add your actual social profile URLs below
-      "https://github.com/rajushrestha",       // update
-      "https://linkedin.com/in/rajushrestha",  // update
-      "https://twitter.com/rajushrestha",      // update
+      "https://github.com/rajushrestha1",       // update
+      "https://www.linkedin.com/in/raju-shrestha-6b5070245",  // update
+      "https://www.pinterest.com/shrestharaju010101",      // update
     ],
     address: {
       "@type": "PostalAddress",
