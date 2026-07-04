@@ -15,16 +15,21 @@ export const blockContentType = defineType({
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
         {title: 'Quote', value: 'blockquote'},
+        // ✅ Text alignment styles
+        {title: 'Align Left',    value: 'alignLeft'},
+        {title: 'Align Center',  value: 'alignCenter'},
+        {title: 'Align Right',   value: 'alignRight'},
+        {title: 'Align Justify', value: 'alignJustify'},
       ],
       lists: [
-        {title: 'Bullet', value: 'bullet'},
+        {title: 'Bullet',   value: 'bullet'},
         {title: 'Numbered', value: 'number'},
       ],
       marks: {
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
-          {title: 'Code', value: 'code'},
+          {title: 'Code',   value: 'code'},
         ],
         annotations: [
           {
@@ -32,11 +37,7 @@ export const blockContentType = defineType({
             name: 'link',
             type: 'object',
             fields: [
-              {
-                title: 'URL',
-                name: 'href',
-                type: 'url',
-              },
+              {title: 'URL', name: 'href', type: 'url'},
             ],
           },
         ],
@@ -47,14 +48,9 @@ export const blockContentType = defineType({
       icon: ImageIcon,
       options: {hotspot: true},
       fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative Text',
-        },
+        {name: 'alt', type: 'string', title: 'Alternative Text'},
       ],
     }),
-    // ✅ Code block with language selector
     defineArrayMember({
       type: 'code',
       icon: CodeIcon,
@@ -63,14 +59,14 @@ export const blockContentType = defineType({
         languageAlternatives: [
           {title: 'JavaScript', value: 'javascript'},
           {title: 'TypeScript', value: 'typescript'},
-          {title: 'JSX', value: 'jsx'},
-          {title: 'TSX', value: 'tsx'},
-          {title: 'HTML', value: 'html'},
-          {title: 'CSS', value: 'css'},
-          {title: 'Python', value: 'python'},
-          {title: 'Bash', value: 'bash'},
-          {title: 'JSON', value: 'json'},
-          {title: 'SQL', value: 'sql'},
+          {title: 'JSX',        value: 'jsx'},
+          {title: 'TSX',        value: 'tsx'},
+          {title: 'HTML',       value: 'html'},
+          {title: 'CSS',        value: 'css'},
+          {title: 'Python',     value: 'python'},
+          {title: 'Bash',       value: 'bash'},
+          {title: 'JSON',       value: 'json'},
+          {title: 'SQL',        value: 'sql'},
         ],
       },
     }),
