@@ -72,23 +72,46 @@ const Hero = () => {
         </div>
 
         {/* Right Image */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center relative">
+        {/* Right */}
+{/* Right */}
+<div className="w-full lg:w-1/2 flex justify-center items-center py-8 lg:py-0">
+  <div
+    className="
+      relative
+      w-[260px] h-[260px]
+      sm:w-[320px] sm:h-[320px]
+      md:w-[380px] md:h-[380px]
+      lg:w-[500px] lg:h-[500px]
+      xl:w-[560px] xl:h-[560px]
+    "
+  >
+    {/* Rotating Ellipse */}
+    <Ellipse
+      ref={ellipseRef}
+      className="absolute inset-0 w-full h-full text-cyan-400 opacity-60"
+    />
 
-          <Ellipse
-            ref={ellipseRef}
-            className="absolute w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px] text-cyan-400 opacity-60"
-          />
-
-          <Image
-            src="/home1.png"
-            alt="Raju Shrestha - Web Developer in Nepal"
-            width={420}
-            height={420}
-            priority
-            className="relative z-10 w-52 sm:w-64 md:w-72 lg:w-[360px] xl:w-[420px] h-auto"
-          />
-
-        </div>
+    {/* Image */}
+    <div className="absolute inset-0 flex items-end justify-center z-10">
+      <Image
+        src="/home1.png"
+        alt="Raju Shrestha - Web Developer in Nepal"
+        width={420}
+        height={700}
+        priority
+        className="
+          h-[180px]
+          sm:h-[220px]
+          md:h-[280px]
+          lg:h-[360px]
+          xl:h-[420px]
+          w-auto
+          object-contain
+        "
+      />
+    </div>
+  </div>
+</div>
 
       </div>
     </section>

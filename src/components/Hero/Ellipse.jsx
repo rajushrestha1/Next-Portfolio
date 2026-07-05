@@ -1,36 +1,38 @@
 'use client';
 
-import { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useRef } from "react";
 
-// Rotating animation hook for Ellipse
 export function useRotatingAnimation(speed = 0.01) {
   const ref = useRef(null);
 
   useEffect(() => {
-    const element = ref.current;
-    if (!element) return;
+    const el = ref.current;
+    if (!el) return;
 
     let rotation = 0;
+    let frame;
+
     const animate = () => {
       rotation += speed;
-      element.style.transform = `rotate(${rotation}rad)`;
-      requestAnimationFrame(animate);
+      el.style.transform = `rotate(${rotation}rad)`;
+      frame = requestAnimationFrame(animate);
     };
+
     animate();
+
+    return () => cancelAnimationFrame(frame);
   }, [speed]);
 
   return ref;
 }
 
-// Ellipse component
-const Ellipse = forwardRef((props, ref) => (
+const Ellipse = forwardRef(({ className = "", ...props }, ref) => (
   <svg
     ref={ref}
-    width="412"
-    height="413"
     viewBox="0 0 412 413"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className={`w-full h-full ${className}`}
+    fill="none"
     {...props}
   >
     <circle
@@ -44,5 +46,7 @@ const Ellipse = forwardRef((props, ref) => (
     />
   </svg>
 ));
+
+Ellipse.displayName = "Ellipse";
 
 export default Ellipse;
