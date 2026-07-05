@@ -14,7 +14,7 @@ function PersonJsonLd() {
     name: "Raju Shrestha",
     url: BASE_URL,
     Image: `${BASE_URL}/aboutme.jpg`,
-    jobTitle: "Full Stack Developer & Designer",
+    jobTitle: "Web Developer In Nepal | Full Stack Developer & Designer",
     description: DEFAULT_SEO.description,
     sameAs: [
       // Add your actual social profile URLs below
