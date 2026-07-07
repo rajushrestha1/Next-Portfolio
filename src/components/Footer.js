@@ -25,7 +25,7 @@ const Footer = () => {
           {/* About Section */}
           <div>
             <h2 className="text-2xl font-bold text-cyan-400 mb-4">
-              Raju Shrestha - Web Developer
+              Raju Shrestha - Web Developer In Nepal
             </h2>
             <p className="text-slate-300 leading-7 text-sm">
               Looking for a reliable web developer in Nepal? With 3+ years of
