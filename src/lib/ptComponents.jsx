@@ -8,7 +8,7 @@ export const ptComponents = {
     code: ({ value }) => (
       <pre
         suppressHydrationWarning
-        className="bg-gray-900 text-gray-100 p-6 rounded-md overflow-x-auto my-6"
+        className="bg-gray-50 text-black border border-gray-200 p-6 rounded-md overflow-x-auto my-6 font-mono text-sm"
       >
         <code className={`language-${value.language || "text"}`}>
           {value.code}
@@ -28,7 +28,7 @@ export const ptComponents = {
     h1: ({ children }) => {
       const id = children.join("").toLowerCase().replace(/\s+/g, "-");
       return (
-        <h1 id={id} className="text-4xl font-bold mb-6 mt-12 text-white">
+        <h1 id={id} className="text-4xl font-bold mb-6 mt-12 text-black font-serif">
           {children}
         </h1>
       );
@@ -36,7 +36,7 @@ export const ptComponents = {
     h2: ({ children }) => {
       const id = children.join("").toLowerCase().replace(/\s+/g, "-");
       return (
-        <h2 id={id} className="text-3xl font-bold mb-5 mt-10 text-white">
+        <h2 id={id} className="text-3xl font-bold mb-5 mt-10 text-black font-serif">
           {children}
         </h2>
       );
@@ -44,7 +44,7 @@ export const ptComponents = {
     h3: ({ children }) => {
       const id = children.join("").toLowerCase().replace(/\s+/g, "-");
       return (
-        <h3 id={id} className="text-2xl font-bold mb-4 mt-8 text-white">
+        <h3 id={id} className="text-2xl font-bold mb-4 mt-8 text-black font-serif">
           {children}
         </h3>
       );
@@ -52,7 +52,7 @@ export const ptComponents = {
     h4: ({ children }) => {
       const id = children.join("").toLowerCase().replace(/\s+/g, "-");
       return (
-        <h4 id={id} className="text-xl font-semibold mb-3 mt-6 text-white">
+        <h4 id={id} className="text-xl font-semibold mb-3 mt-6 text-black font-serif">
           {children}
         </h4>
       );
@@ -60,34 +60,34 @@ export const ptComponents = {
 
     // ── Normal paragraph ────────────────────────────────────
     normal: ({ children }) => (
-      <p className="mb-6 leading-relaxed text-base text-gray-300">{children}</p>
+      <p className="mb-6 leading-relaxed text-lg text-black font-serif">{children}</p>
     ),
 
-    // ── Blockquote ──────────────────────────────────────────
+    // ── Blockquote → "Quick answer" style callout box ───────
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-cyan-500 pl-6 italic text-gray-400 my-6">
+      <blockquote className="bg-gray-50 border border-gray-200 rounded-lg pl-6 pr-6 py-5 my-8 text-black font-serif not-italic">
         {children}
       </blockquote>
     ),
 
     // ✅ Text alignment styles
     alignLeft: ({ children }) => (
-      <p className="mb-6 leading-relaxed text-base text-gray-300 text-left">
+      <p className="mb-6 leading-relaxed text-lg text-black font-serif text-left">
         {children}
       </p>
     ),
     alignCenter: ({ children }) => (
-      <p className="mb-6 leading-relaxed text-base text-gray-300 text-center">
+      <p className="mb-6 leading-relaxed text-lg text-black font-serif text-center">
         {children}
       </p>
     ),
     alignRight: ({ children }) => (
-      <p className="mb-6 leading-relaxed text-base text-gray-300 text-right">
+      <p className="mb-6 leading-relaxed text-lg text-black font-serif text-right">
         {children}
       </p>
     ),
     alignJustify: ({ children }) => (
-      <p className="mb-6 leading-relaxed text-base text-gray-300 text-justify">
+      <p className="mb-6 leading-relaxed text-lg text-black font-serif text-justify">
         {children}
       </p>
     ),
@@ -96,10 +96,10 @@ export const ptComponents = {
   // ── List types ───────────────────────────────────────────
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc pl-8 mb-6 text-gray-300 space-y-2">{children}</ul>
+      <ul className="list-disc pl-8 mb-6 text-black font-serif text-lg space-y-2">{children}</ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal pl-8 mb-6 text-gray-300 space-y-2">{children}</ol>
+      <ol className="list-decimal pl-8 mb-6 text-black font-serif text-lg space-y-2">{children}</ol>
     ),
   },
   listItem: {
@@ -110,22 +110,22 @@ export const ptComponents = {
   // ── Inline marks ─────────────────────────────────────────
   marks: {
     strong: ({ children }) => (
-      <strong className="font-bold text-white">{children}</strong>
+      <strong className="font-bold text-black">{children}</strong>
     ),
     em: ({ children }) => (
-      <em className="italic text-gray-300">{children}</em>
+      <em className="italic text-black">{children}</em>
     ),
     code: ({ children }) => (
-      <code className="bg-gray-800 text-cyan-300 px-2 py-0.5 rounded text-sm font-mono">
+      <code className="bg-gray-100 text-black px-2 py-0.5 rounded text-sm font-mono">
         {children}
       </code>
     ),
     link: ({ value, children }) => (
       <a
-        href={value?.href}
+        href={value && value.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-cyan-400 underline underline-offset-2 hover:text-cyan-300 transition"
+        className="text-black underline underline-offset-2 hover:text-gray-700 transition"
       >
         {children}
       </a>

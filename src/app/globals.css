@@ -238,3 +238,8 @@
     @apply transition-colors;
   }
 }
+
+/* Blog pages: use Times New Roman for body text */
+.blog-times {
+  font-family: "Times New Roman", Times, serif;
+}

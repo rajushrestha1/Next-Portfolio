@@ -38,7 +38,12 @@ async function getPost(slugParam) {
       }
     }
   `;
-  return await client.fetch(query, { decodedSlug, normalizedSlug });
+  try {
+    return await client.fetch(query, { decodedSlug, normalizedSlug });
+  } catch (error) {
+    console.error("Failed to load blog post:", error);
+    return null;
+  }
 }
 
 // ── Extract Headings for ToC ──────────────────────────────────
@@ -127,9 +132,10 @@ export default async function SinglePost({ params }) {
       />
 
       {/* ── Page Layout ── */}
-      <div className="max-w-6xl mx-auto px-5 py-10 grid md:grid-cols-3 gap-10">
-        {/* Main blog content */}
-        <div className="md:col-span-2">
+      <div className="min-h-screen bg-white text-black">
+        <div className="max-w-6xl mx-auto px-5 py-10 grid md:grid-cols-3 gap-10 blog-times">
+          {/* Main blog content */}
+          <div className="md:col-span-2">
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
@@ -138,33 +144,208 @@ export default async function SinglePost({ params }) {
             ]}
           />
 
-          <h1 className="text-3xl font-bold mb-4 ibm-plex-mono-bold">
+          <h1
+            className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4"
+            style={{ fontFamily: '"Times New Roman", Times, serif' }}
+          >
             {post.title}
           </h1>
 
-          <p className="text-gray-500 mb-6 ibm-plex-mono-regular">
+          <p className="text-gray-500 mb-6 text-sm">
             By {post.author?.name} •{" "}
             {new Date(post.publishedAt).toDateString()}
           </p>
 
           {post.mainImage && (
-            <img
-              src={urlFor(post.mainImage).width(800).url()}
-              alt={post.title}
-              className="rounded-xl mb-8"
-            />
+            <div className="mt-2 mb-8 rounded-2xl overflow-hidden border border-gray-100">
+              <img
+                src={urlFor(post.mainImage).width(800).url()}
+                alt={post.title}
+                className="w-full h-auto object-cover"
+              />
+            </div>
           )}
 
-          <div className="max-w-none ibm-plex-mono-regular">
-            <PortableText value={post.body} components={ptComponents} />
+            <div className="blog-content max-w-none">
+              <PortableText value={post.body} components={ptComponents} />
+            </div>
+          </div>
+
+          {/* Table of Contents */}
+          <div className="hidden md:block">
+            <TableOfContents headings={headings} />
           </div>
         </div>
-
-        {/* Table of Contents */}
-        <div className="hidden md:block">
-          <TableOfContents headings={headings} />
-        </div>
       </div>
+
+      <style>{`
+        .blog-content {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 1.0625rem;
+          line-height: 1.8;
+          color: #111827;
+        }
+
+        .blog-content h1 {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 2.25rem;
+          font-weight: 700;
+          line-height: 1.25;
+          margin-top: 2.5rem;
+          margin-bottom: 1.25rem;
+          color: #000000;
+        }
+
+        .blog-content h2 {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 1.875rem;
+          font-weight: 700;
+          line-height: 1.3;
+          margin-top: 2.25rem;
+          margin-bottom: 1rem;
+          color: #000000;
+          border-bottom: 2px solid #e5e7eb;
+          padding-bottom: 0.5rem;
+        }
+
+        .blog-content h3 {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 1.5rem;
+          font-weight: 700;
+          line-height: 1.35;
+          margin-top: 2rem;
+          margin-bottom: 0.875rem;
+          color: #111827;
+        }
+
+        .blog-content h4 {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 1.25rem;
+          font-weight: 700;
+          line-height: 1.4;
+          margin-top: 1.75rem;
+          margin-bottom: 0.75rem;
+          color: #111827;
+        }
+
+        .blog-content h5 {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 1.0625rem;
+          font-weight: 700;
+          line-height: 1.45;
+          margin-top: 1.5rem;
+          margin-bottom: 0.625rem;
+          color: #111827;
+          text-transform: uppercase;
+          letter-spacing: 0.03em;
+        }
+
+        .blog-content h6 {
+          font-family: "Times New Roman", Times, serif;
+          font-size: 0.9375rem;
+          font-weight: 700;
+          line-height: 1.45;
+          margin-top: 1.5rem;
+          margin-bottom: 0.5rem;
+          color: #111827;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .blog-content p {
+          margin-top: 0;
+          margin-bottom: 1.25rem;
+        }
+
+        .blog-content a {
+          color: #111827;
+          text-decoration: underline;
+          text-underline-offset: 2px;
+        }
+
+        .blog-content a:hover {
+          color: #4b5563;
+        }
+
+        .blog-content ul,
+        .blog-content ol {
+          margin-top: 0;
+          margin-bottom: 1.25rem;
+          padding-left: 1.5rem;
+        }
+
+        .blog-content ul {
+          list-style-type: disc;
+        }
+
+        .blog-content ol {
+          list-style-type: decimal;
+        }
+
+        .blog-content li {
+          margin-bottom: 0.5rem;
+        }
+
+        .blog-content blockquote {
+          border-left: 4px solid #d1d5db;
+          padding-left: 1.25rem;
+          margin: 1.5rem 0;
+          font-style: italic;
+          color: #111827;
+        }
+
+        .blog-content img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 0.75rem;
+          margin: 1.5rem 0;
+        }
+
+        .blog-content strong {
+          font-weight: 700;
+        }
+
+        .blog-content code {
+          font-family: "Courier New", Courier, monospace;
+          background-color: #f3f4f6;
+          padding: 0.15rem 0.4rem;
+          border-radius: 0.25rem;
+          font-size: 0.9em;
+        }
+
+        .blog-content pre {
+          background-color: #f9fafb;
+          color: #111827;
+          padding: 1.25rem;
+          border-radius: 0.75rem;
+          overflow-x: auto;
+          margin: 1.5rem 0;
+        }
+
+        .blog-content pre code {
+          background-color: transparent;
+          padding: 0;
+          color: inherit;
+        }
+
+        .blog-content table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 1.5rem 0;
+        }
+
+        .blog-content th,
+        .blog-content td {
+          border: 1px solid #e5e7eb;
+          padding: 0.6rem 0.9rem;
+          text-align: left;
+        }
+
+        .blog-content th {
+          background-color: #f9fafb;
+          font-weight: 700;
+        }
+      `}</style>
     </>
   );
 }
