@@ -35,7 +35,9 @@ async function getLatestPosts() {
       _id,
       title,
       slug,
-      mainImage
+      mainImage,
+      publishedAt,
+      _createdAt
     }
   `;
   return await client.fetch(query);
@@ -311,14 +313,11 @@ export default async function Home() {
                 {posts[0].title}
               </h2>
 
-              <p className="text-slate-400 mt-5 max-w-2xl leading-relaxed">
-                {posts[0].excerpt ||
-                  "Learn how to build modern responsive UI components using React and Tailwind CSS."}
-              </p>
-
               <div className="mt-6 text-slate-500 text-sm">
-                {new Date(posts[0]._createdAt).toDateString()} · 2 min read
-              </div>
+  {posts[0].publishedAt || posts[0]._createdAt
+    ? new Date(posts[0].publishedAt || posts[0]._createdAt).toDateString()
+    : ""} · 2 min read
+</div>
             </div>
           </Link>
         )}
@@ -369,8 +368,10 @@ export default async function Home() {
                       </div>
 
                       <div className="mt-5 text-slate-500 text-sm">
-                        {new Date(post._createdAt).toDateString()} · 1 min read
-                      </div>
+  {post.publishedAt || post._createdAt
+    ? new Date(post.publishedAt || post._createdAt).toDateString()
+    : ""} · 1 min read
+</div>
                     </div>
                   </div>
                 </div>
