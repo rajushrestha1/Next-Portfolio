@@ -24,7 +24,7 @@ const Hero = () => {
         {/* Left Content */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
 
-          <h1>
+          <h2>
             <span className="block text-neutral font-bold text-3xl sm:text-4xl md:text-5xl leading-tight">
               Hi, I&apos;m Raju Shrestha
             </span>
@@ -32,11 +32,11 @@ const Hero = () => {
             <span className="block mt-2 text-cyan-400 font-bold text-2xl sm:text-3xl md:text-4xl min-h-[48px]">
               {role}
             </span>
-          </h1>
+          </h2>
 
-          <p className="mt-4 text-cyan-400 font-semibold tracking-wide text-sm sm:text-base ibm-plex-mono-regular">
-            Web Developer in Nepal • Based in Kathmandu
-          </p>
+          <h1 className="mt-4 text-cyan-400 font-semibold tracking-wide text-sm sm:text-base ibm-plex-mono-regular">
+           Raju Shrestha - Web Developer in Nepal 
+          </h1>
 
           <p className="mt-6 text-slate-300 text-base sm:text-lg leading-8 max-w-xl mx-auto lg:mx-0 ibm-plex-mono-regular">
             Full Stack Web Developer in Nepal specializing in Next.js, React,
