@@ -47,7 +47,7 @@ export const metadata = {
     description: DEFAULT_SEO.description,
     images: [
       {
-        url: `${BASE_URL}/og-default.png`,
+        url: `${BASE_URL}/og-default.jpeg`,
         width: 1200,
         height: 630,
         alt: DEFAULT_SEO.title,
@@ -78,15 +78,15 @@ export const metadata = {
   icons: {
     icon: [
       {
-        url: "/home.png",
-        type: "image/png",
+        url: "/icon.jpeg",
+        type: "image/jpeg",
         sizes: "512x512",
       },
     ],
     apple: [
       {
-        url: "/logo1.png",
-        type: "image/png",
+        url: "/icon.jpeg",
+        type: "image/jpeg",
         sizes: "512x512",
       },
     ],
