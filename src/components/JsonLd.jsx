@@ -13,7 +13,7 @@ function PersonJsonLd() {
     "@type": "Person",
     name: "Raju Shrestha",
     url: BASE_URL,
-    Image: `${BASE_URL}/aboutme.jpg`,
+    image: `${BASE_URL}/icon.jpeg`,
     jobTitle: "Web Developer In Nepal | Full Stack Developer & Designer",
     description: DEFAULT_SEO.description,
     sameAs: [

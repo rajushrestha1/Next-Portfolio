@@ -3,9 +3,9 @@
   "short_name": "Portfolio",
   "icons": [
     {
-      "src": "/home.png",
+      "src": "/icon.jpeg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any maskable"
     }
   ],

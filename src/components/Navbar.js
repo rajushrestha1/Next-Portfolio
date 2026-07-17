@@ -24,14 +24,13 @@ const NavBar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 z-50 w-full border-b backdrop-blur-lg transition-colors duration-300 ${
-        isLight ? "bg-black/60 border-white/10" : "bg-white/5 border-white/10"
-      }`}
+      className={`fixed top-0 left-0 z-50 w-full border-b backdrop-blur-lg transition-colors duration-300 ${isLight ? "bg-black/60 border-white/10" : "bg-white/5 border-white/10"
+        }`}
     >
       <div className="flex items-center justify-between h-15 px-6 md:px-12">
         {/* Logo */}
         <div className="flex items-center">
-          <img src="/logo1.png" alt="logo" className="h-50 w-auto" />
+          <img src="/icon.jpeg" alt="logo" className="h-50 w-auto" />
         </div>
 
         {/* Center Menu */}
@@ -40,9 +39,8 @@ const NavBar = () => {
             <li key={id}>
               <Link
                 href={href}
-                className={`relative px-5 py-2 text-sm font-medium uppercase tracking-wider transition-all duration-300 rounded-full hover:text-cyan-400 hover:bg-slate-800 group ${
-                  isLight ? "text-white" : "text-slate-300"
-                }`}
+                className={`relative px-5 py-2 text-sm font-medium uppercase tracking-wider transition-all duration-300 rounded-full hover:text-cyan-400 hover:bg-slate-800 group ${isLight ? "text-white" : "text-slate-300"
+                  }`}
               >
                 {label}
                 <span className="absolute left-1/2 bottom-1 h-[2px] w-0 bg-cyan-400 transition-all duration-300 group-hover:w-3/4 group-hover:left-[12%]"></span>
@@ -65,9 +63,8 @@ const NavBar = () => {
         {/* Mobile Menu Icon */}
         <div
           onClick={() => setNav(!nav)}
-          className={`md:hidden cursor-pointer z-50 ${
-            isLight ? "text-white" : "text-slate-300"
-          }`}
+          className={`md:hidden cursor-pointer z-50 ${isLight ? "text-white" : "text-slate-300"
+            }`}
         >
           {nav ? <MenuOpenIcon /> : <MenuIcon />}
         </div>
@@ -76,9 +73,8 @@ const NavBar = () => {
       {/* Mobile Menu */}
       {nav && (
         <ul
-          className={`md:hidden flex flex-col justify-center items-center gap-8 h-screen backdrop-blur-lg ${
-            isLight ? "bg-black/80 text-white" : "bg-slate-900/80 text-slate-300"
-          }`}
+          className={`md:hidden flex flex-col justify-center items-center gap-8 h-screen backdrop-blur-lg ${isLight ? "bg-black/80 text-white" : "bg-slate-900/80 text-slate-300"
+            }`}
         >
           {[...centerLinks, { id: 5, label: "Contact", href: "/contact" }].map(
             ({ id, label, href }) => (
