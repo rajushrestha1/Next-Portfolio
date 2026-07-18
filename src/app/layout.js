@@ -78,15 +78,15 @@ export const metadata = {
   icons: {
     icon: [
       {
-        url: "/icon.jpeg",
-        type: "image/jpeg",
+        url: "/icon.png",
+        type: "image/png",
         sizes: "512x512",
       },
     ],
     apple: [
       {
-        url: "/icon.jpeg",
-        type: "image/jpeg",
+        url: "/icon.png",
+        type: "image/png",
         sizes: "512x512",
       },
     ],

@@ -84,7 +84,7 @@ function ArticleJsonLd({ data }) {
       url: BASE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${BASE_URL}/icon.jpeg`,
+        url: `${BASE_URL}/icon.png`,
       },
     },
     mainEntityOfPage: {
