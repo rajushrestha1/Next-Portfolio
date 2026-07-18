@@ -30,7 +30,7 @@ const NavBar = () => {
       <div className="flex items-center justify-between h-15 px-6 md:px-12">
         {/* Logo */}
         <div className="flex items-center">
-          <img src="/icon.jpeg" alt="logo" className="h-50 w-auto" />
+          <img src="/logo1.png" alt="logo" className="h-50 w-auto" />
         </div>
 
         {/* Center Menu */}
